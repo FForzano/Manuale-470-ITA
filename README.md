@@ -1,0 +1,1 @@
+# Latex article template

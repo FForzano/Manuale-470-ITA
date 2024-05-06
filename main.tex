@@ -1,0 +1,49 @@
+\documentclass[%
+    twoside, 
+    a4paper
+    ]{article}
+\let\MakeUppercase\relax
+\linespread{1.2}
+\usepackage{geometry}
+\geometry{a4paper, twoside, top=2.5cm, bottom=2.5cm, left=3cm, right=3cm, bindingoffset=0.5cm}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[main=italian, english]{babel}
+
+\usepackage{csquotes}
+% Image
+\usepackage{tikz, pgfplots, xargs,fp}
+\usepackage{subcaption}
+% Specific language
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{standalone}
+\usepackage{stackrel}
+\usepackage{amsthm}
+\usepackage{pdfpages}
+\usepackage{acronym}
+\usepackage[inline]{enumitem}
+\usepackage{mathrsfs}  
+\usepackage{hyperref}
+
+\newcommand{\imagesPath}{./Images}
+\newcommand{\sectionsPath}{./Sections}
+
+\title{Manuale del 470}
+\author{Arthur Gurevitch}
+\date{}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\input{\sectionsPath/Prefazione}
+\input{\sectionsPath/InformazioniSulManuale}
+\input{\sectionsPath/Introduzione}
+\input{\sectionsPath/LaBarca}
+
+\end{document}
