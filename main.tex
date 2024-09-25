@@ -40,6 +40,12 @@
 \acrodef{CE}[CE]{center of effort}
 \acrodef{CLR}[CLR]{center of lateral resistance}
 
+\newcommand{\worddef}[4]{
+    \expandafter\newcommand\csname #1\endcsname{#2 }
+    \expandafter\newcommand\csname the#1\endcsname{#3 #2 }
+    \expandafter\newcommand\csname a#1\endcsname{#4 #2 }
+}
+
 % Definizione dei termini specifici per i quali potrà essere rivista la
 % traduzione
 \def\cunningham{cunningham }
@@ -52,7 +58,6 @@
 \def\leeward{sottovento }
 \def\draft{grasso }
 \def\halyard{drizza }
-\def\luff{inferitura }
 \def\sheet{scotta }
 \def\sheets{scotte }
 \def\prebend{prebend }
@@ -63,8 +68,9 @@
 \def\chainplate{chain plate }
 \def\twingline{barber }
 \def\twinglines{barber }
-\def\guy{braccio }
-\def\pole{tangone }
+\worddef{guy}{braccio}{il}{un}
+\worddef{pole}{tangone}{il}{un}
+\worddef{luff}{ralinga}{la}{una}
 
 \begin{document}
 \maketitle
