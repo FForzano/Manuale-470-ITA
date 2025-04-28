@@ -11,6 +11,9 @@ L'obiettivo di questo progetto va oltre la semplice traduzione letterale del
 manuale originale: partendo dall'eccellente lavoro di Arthur Gurevitch, si è voluto creare una guida più
 completa, chiara e accessibile per i velisti italiani.
 
+[![Download as PDF](https://img.shields.io/badge/Download%20AS%20pdf-EF3939?style=for-the-badge&logo=adobeacrobatreader&logoColor=white&color=black&labelColor=ec1c24)](https://github.com/FForzano/Manuale-470-ITA/releases/download/v1.0/Manuale-al-470-ITA.pdf)
+
+
 ## Informazioni sul 470
 
 Il 470 è una deriva olimpica per due persone, progettata alla fine degli anni '60 da André Corneau. La classe ha debuttato alle Olimpiadi del 1976 a Kingston, Ontario, ed è tuttora una classe olimpica. Il nome "470" deriva dalla lunghezza dello scafo, che misura 4,70 metri.
