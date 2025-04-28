@@ -1,9 +1,7 @@
 # Manuale al 470 - Traduzione Italiana
 
-[![PDF
-Status](https://img.shields.io/badge/PDF-disponibile-brightgreen.svg)](Manuale-al-470-ITA.pdf)
-[![Stato Traduzione](https://img.shields.io/badge/Traduzione-100%25-brightgreen.svg)](Manuale-al-470-ITA.tex)
-[![PDF Originale](https://img.shields.io/badge/PDF-originale-blue.svg)](Manuale_470_originale.pdf)
+[![PDF Status](https://img.shields.io/badge/PDF-disponibile-brightgreen.svg)](Manuale-al-470-ITA.pdf)
+[![PDF Originale](https://img.shields.io/badge/PDF-originale-blue.svg)](470-Manual-ENG.pdf)
 
 Questo repository contiene la traduzione italiana completa del manuale al 470 originariamente scritto da Arthur Gurevitch. La traduzione è stata curata da Federico Forzano.
 
