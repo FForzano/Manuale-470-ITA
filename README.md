@@ -80,5 +80,15 @@ Si prega di utilizzare questo materiale esclusivamente per scopi personali o did
 
 Se sei il detentore di diritti sul contenuto originale e desideri discutere di questa traduzione, contatta l'autore all'indirizzo [email](mailto:f.forzano99@gmail.com) indicato sopra.
 
-Grazie per il tuo contributo e buona navigazione!
+---
+<div align="center">
+  
+### ⛵️ Grazie per il tuo interesse in questo progetto! ⛵️
 
+**470 Class Sailing Manual - Italian Edition**
+
+🌊 🧭 🌊
+
+</div>
+
+---
