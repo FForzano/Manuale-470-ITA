@@ -3,7 +3,13 @@
 [![PDF Status](https://img.shields.io/badge/PDF-disponibile-brightgreen.svg)](Manuale-al-470-ITA.pdf)
 [![PDF Originale](https://img.shields.io/badge/PDF-originale-blue.svg)](470-Manual-ENG.pdf)
 
-Questo repository contiene la traduzione italiana completa del manuale al 470 originariamente scritto da Arthur Gurevitch. La traduzione è stata curata da Federico Forzano.
+Questo repository nasce come traduzione italiana completa del manuale al 470
+originariamente scritto da Arthur Gurevitch. La traduzione è stata curata da
+Federico Forzano.
+
+L'obiettivo di questo progetto va oltre la semplice traduzione letterale del
+manuale originale: partendo dall'eccellente lavoro di Arthur Gurevitch, si è voluto creare una guida più
+completa, chiara e accessibile per i velisti italiani.
 
 ## Informazioni sul 470
 
@@ -50,7 +56,7 @@ Se trovi errori di traduzione o hai suggerimenti per migliorare il manuale, puoi
 3. **Email:** Scrivi direttamente a Federico Forzano all'indirizzo
    [f.forzano99@gmail.com](mailto:f.forzano99@gmail.com)
 
-### Linee guida per la traduzione
+### Linee guida per la traduzione e la scrittura
 - Mantenere la terminologia tecnica nautica italiana quando disponibile
 - Per i termini specifici della classe 470 o senza equivalente italiano diretto, conservare il termine originale corsivo
 - Rispettare la formattazione e lo stile del documento originale
@@ -62,6 +68,10 @@ revisione risalente al 23 dicembre 1999. L'originale è disponibile all'url
 ed è presente nel repository come
 [![PDF
 Originale](https://img.shields.io/badge/PDF-originale-blue.svg)](Manuale_470_originale.pdf).
+
+## Contributors
+- **Federico Forzano** - *Traduzione e mantenimento* - [@FForzano](https://github.com/FForzano)
+
 
 ## Licenza
 Questo progetto è una traduzione non ufficiale realizzata a scopo puramente educativo e condivisa gratuitamente con la comunità velica. Non ha finalità commerciali e non genera alcun profitto.
