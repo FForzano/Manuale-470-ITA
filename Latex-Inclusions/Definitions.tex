@@ -1,0 +1,5 @@
+\newcommand{\worddef}[4]{
+    \expandafter\newcommand\csname #1\endcsname{#2 }
+    \expandafter\newcommand\csname the#1\endcsname{#3 #2 }
+    \expandafter\newcommand\csname a#1\endcsname{#4 #2 }
+}

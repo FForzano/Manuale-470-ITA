@@ -1,7 +1,7 @@
 \documentclass[%
     twoside, 
     a4paper
-    ]{article}
+    ]{book}
 \let\MakeUppercase\relax
 \linespread{1.2}
 \usepackage{geometry}
@@ -31,62 +31,29 @@
 \usepackage{siunitx}
 
 \newcommand{\imagesPath}{./Images}
-\newcommand{\sectionsPath}{./Sections}
-\newcommand{\subsectionsPath}{}
+\newcommand{\chaptersPath}{./Chapters}
+\newcommand{\sectionsPath}{}
 
 \title{Manuale del 470}
 \author{Arthur Gurevitch}
 \date{}
 
-\acrodef{CE}[CE]{center of effort}
-\acrodef{CLR}[CLR]{center of lateral resistance}
-
-\newcommand{\worddef}[4]{
-    \expandafter\newcommand\csname #1\endcsname{#2 }
-    \expandafter\newcommand\csname the#1\endcsname{#3 #2 }
-    \expandafter\newcommand\csname a#1\endcsname{#4 #2 }
-}
-
-% Definizione dei termini specifici per i quali potrà essere rivista la
-% traduzione
-\def\cunningham{cunningham }
-\def\vang{vang }
-\def\leech{balumina }
-\def\leeches{balumine }
-\def\upperleech{parte alta della \leech }
-\def\twist{svergolamento }
-\def\windward{sopravento }
-\def\leeward{sottovento }
-\def\draft{grasso }
-\def\halyard{drizza }
-\def\sheet{scotta }
-\def\sheets{scotte }
-\def\prebend{prebend }
-\def\telltales{telltales }
-\def\telltale{telltale }
-\def\outhaul{tesabase }
-\def\mastpull{spingialbero }
-\def\chainplate{chain plate }
-\def\twingline{barber }
-\def\twinglines{barber }
-\worddef{guy}{braccio}{il}{un}
-\worddef{pole}{tangone}{il}{un}
-\worddef{luff}{ralinga}{la}{una}
-\worddef{transom}{specchio di poppa}{lo}{uno}
-\worddef{spreader}{spreader}{lo}{uno}
+\input{Latex-Inclusions/Acronyms.tex}
+\input{Latex-Inclusions/Definitions.tex}
+\input{Latex-Inclusions/Technical-Translations.tex}
 
 \begin{document}
 \maketitle
 \tableofcontents
 \newpage
 
-\input{\sectionsPath/Prefazione}
-\input{\sectionsPath/InformazioniSulManuale}
-\input{\sectionsPath/Introduzione}
-\input{\sectionsPath/LaBarca}
-\input{\sectionsPath/RegolazioneDellaBarca}
-\input{\sectionsPath/Scuffia}
+\input{\chaptersPath/Prefazione}
+\input{\chaptersPath/InformazioniSulManuale}
+\input{\chaptersPath/Introduzione}
+\input{\chaptersPath/LaBarca}
+\input{\chaptersPath/RegolazioneDellaBarca}
+\input{\chaptersPath/Scuffia}
 %
-\input{\sectionsPath/Appendice}
+\input{\chaptersPath/Appendice}
 
 \end{document}
