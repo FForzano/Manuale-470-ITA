@@ -1,0 +1,63 @@
+\documentclass[tikz, margin=10cm]{standalone}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{pgfplots}
+\usepackage{tikz,pgf}
+\pgfplotsset{compat=1.18}
+
+% ulem package provides various types of underlining that can stretch between
+% words and be broken across lines.
+\usepackage[normalem]{ulem}
+
+% The package amsmath is part of the AMS-LaTeX distribution. It provides several
+% commands for displaying and formatting mathematical formulas. The package also
+% provides many environments for displaying equations and other mathematical
+% expressions. The package amssymb provides various useful mathematical symbols.
+% Finally, the package mathrsfs provides the \mathscr command, which allows you
+% to use the Ralph Smith Formal Script font in mathematical expressions.
+\usepackage{amsmath,amssymb, mathrsfs}
+
+% xcolor package provides easy driver-independent access to several kinds of
+% colors, tints, shades, tones, and mixes of arbitrary colors by means of color
+% expressions like \color{red!50!green!20!blue}. colortbl package provides the
+% means to add color to LaTeX tables.
+\usepackage{xcolor}
+\usepackage{colortbl}
+
+% The package xspace provides a single command that looks at what comes after it
+% and decides whether to insert a space to replace one "eaten" by the TeX
+% command decoder. 
+\usepackage{scalerel}
+
+\usepackage{array}
+\usepackage{hhline}
+\usepackage{multirow}
+
+%%% Include TikZ libraries %%%
+\usetikzlibrary{
+    arrows,
+    calc,
+    angles,
+    arrows.meta,
+    decorations.text,
+    shapes.symbols
+    }
+
+\input{../Latex-Inclusions/Definitions.tex}
+\input{../Latex-Inclusions/TikZ-Definitions.tex}
+
+\begin{document}	%	BEGIN DOCUMENT
+
+%%% Define your custom colors %%%
+% \definecolor{marrone}{RGB}{181, 192, 208}
+
+
+\begin{tikzpicture}[]
+
+    % Your code here
+    \wwboat{0}{0}
+
+\end{tikzpicture}
+\end{document}	%	END DOCUMENT

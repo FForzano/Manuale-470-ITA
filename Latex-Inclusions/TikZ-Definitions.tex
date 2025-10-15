@@ -1,0 +1,115 @@
+% Boat dimensions based on a typical 470 class dinghy
+% Hull dimensions
+\pgfmathsetmacro{\hulllength}{470}
+\pgfmathsetmacro{\hullheight}{50}
+
+% Mast dimensions
+\pgfmathsetmacro{\mastheight}{670}
+\pgfmathsetmacro{\mastforeaft}{7}
+
+% Foredeck dimensions
+\pgfmathsetmacro{\foredeckmaxheight}{7.5}
+\pgfmathsetmacro{\foredeckbreakwateronhdp}{325}
+\pgfmathsetmacro{\foredeckbreakwateronsheer}{283}
+\pgfmathsetmacro{\foredeckbreakwaterheightratio}{60/100}
+\pgfmathsetmacro{\foredeckbreakwaterheight}{\foredeckmaxheight * \foredeckbreakwaterheightratio}
+\pgfmathsetmacro{\foredeckheight}{\foredeckmaxheight-\foredeckbreakwaterheight}
+
+% Centreboard dimensions
+\pgfmathsetmacro{\centreboardAB}{97.5}
+\pgfmathsetmacro{\centreboardBO}{5}
+\pgfmathsetmacro{\centreboardOC}{5}
+\pgfmathsetmacro{\centreboardCD}{14.5}
+\pgfmathsetmacro{\centreboardDE}{10}
+\pgfmathsetmacro{\centreboardEF}{10}
+\pgfmathsetmacro{\centreboardGy}{46}
+
+
+\NewDocumentCommand{\wwboat}{m m O{1}}{
+    % #1: x-coordinate
+    % #2: y-coordinate
+    % #3: scale (default is 1)
+
+    \def\x{#1}
+    \def\y{#2}
+    \def\scalefactor{#3}
+
+    \lhull{\x}{\y}{\scalefactor}
+}
+
+\NewDocumentCommand{\lhull}{m m O{1}}{
+    % Draws the hull of a 470 class dinghy at specified coordinates and scale (left-facing)
+    % #1: x-coordinate
+    % #2: y-coordinate
+    % #3: scale (default is 1)
+
+    \def\x{#1}
+    \def\y{#2}
+    \def\scalefactor{#3}
+
+        \begin{scope}[shift={(#1,#2)}, scale=#3*0.1]
+        % Hull shape coordinates (Based on class rules)
+        \coordinate (FMP) at (\hulllength,\hullheight);
+        \coordinate (AMP) at (0,23);
+        \coordinate (HDP) at (0,0);
+        \coordinate (secA) at (50,17.8);
+        \coordinate (secB) at (150,9.8);
+        \coordinate (secC) at (250,6.1);
+        \coordinate (secD) at (350,7.6);
+        \coordinate (secE) at (400,11.4);
+
+        \coordinate (mastBasePoint) at (308.5,0);
+
+        % Hull arbitrary points
+        \coordinate (transomMiddleTop) at (0,\hullheight);
+
+        % Draw the hull of the boat
+        \draw [fill=blue!50] (transomMiddleTop)
+        -- plot [smooth] coordinates{
+                (AMP)
+                (secA)
+                (secB)
+                (secC)
+                (secD)
+            }
+            -- (secE) .. controls +(70,7) and +(-9, -20) .. (FMP)
+            -- cycle;
+
+        % Foredeck
+        \coordinate (foredeckStart) at (\hulllength,\hullheight);
+        \coordinate (foredeckTop) at
+        ({\foredeckbreakwateronhdp},{\hullheight+\foredeckheight});
+        \coordinate (foredeckEnd) at
+        ({\foredeckbreakwateronsheer},\hullheight);
+        \draw [fill=blue!30] (foredeckStart) -- (foredeckTop) -- (foredeckEnd)
+        -- cycle;
+
+        \coordinate (foredeckBreakwaterTopOnHDP) at
+        ({\foredeckbreakwateronhdp},{\hullheight+\foredeckmaxheight});
+        \coordinate (foredeckBreakwaterBaseOnHDP) at
+        ({\foredeckbreakwateronhdp},{\hullheight+\foredeckheight});
+        \coordinate (foredeckBreakwaterBaseOnSheer) at
+        ({\foredeckbreakwateronsheer},\hullheight);
+        \draw [fill=blue!20] (foredeckBreakwaterTopOnHDP) -- (foredeckBreakwaterBaseOnHDP) -- (foredeckBreakwaterBaseOnSheer)
+        -- cycle;
+    \end{scope}
+}
+
+\NewDocumentCommand{\centreboard}{m m O{1}}{
+    % #1: x-coordinate
+    % #2: y-coordinate
+    % #3: scale (default is 1)
+
+    \def\x{#1}
+    \def\y{#2}
+    \def\scalefactor{#3}
+
+    \begin{scope}[shift={(#1,#2)}, scale=#3*0.1]
+        \coordinate (O) at (0,0);
+        \coordinate (A) at (0,{\centreboardAB + \centreboardBO});
+        \coordinate (B) at (0,\centreboardBO);
+        \coordinate (C) at (0,\centreboardOC);
+        \coordinate (D) at (0,{\centreboardOC + \centreboardCD});
+        \coordinate (E) at (0,{\centreboardOC + \centreboardCD + \centreboardDE});
+    \end{scope}
+}
