@@ -1,78 +1,140 @@
+\def\globalscale{0.1}
+
 % Boat dimensions based on a typical 470 class dinghy
 % Hull dimensions
-\pgfmathsetmacro{\hulllength}{470}
-\pgfmathsetmacro{\hullheight}{50}
+\pgfmathsetmacro{\hulllength}{470*\globalscale}
+\pgfmathsetmacro{\hullheight}{50*\globalscale}
 
 % Mast dimensions
-\pgfmathsetmacro{\mastheight}{670}
-\pgfmathsetmacro{\mastforeaft}{7}
+\pgfmathsetmacro{\mastheight}{680*\globalscale}
+\pgfmathsetmacro{\mastforeaft}{7*\globalscale}
+\pgfmathsetmacro{\mastbasepointtohull}{308.5*\globalscale}
+\pgfmathsetmacro{\boomstartheight}{105.5*\globalscale}
+\pgfmathsetmacro{\boomlength}{265*\globalscale}
+\pgfmathsetmacro{\boomheight}{6.1*\globalscale}
+\pgfmathsetmacro{\boomangle}{-20} % degrees
 
 % Foredeck dimensions
-\pgfmathsetmacro{\foredeckmaxheight}{7.5}
-\pgfmathsetmacro{\foredeckbreakwateronhdp}{325}
-\pgfmathsetmacro{\foredeckbreakwateronsheer}{283}
+\pgfmathsetmacro{\foredeckmaxheight}{7.5*\globalscale}
+\pgfmathsetmacro{\foredeckbreakwateronhdp}{325*\globalscale}
+\pgfmathsetmacro{\foredeckbreakwateronsheer}{283*\globalscale}
 \pgfmathsetmacro{\foredeckbreakwaterheightratio}{60/100}
 \pgfmathsetmacro{\foredeckbreakwaterheight}{\foredeckmaxheight * \foredeckbreakwaterheightratio}
 \pgfmathsetmacro{\foredeckheight}{\foredeckmaxheight-\foredeckbreakwaterheight}
 
 % Centreboard dimensions
-\pgfmathsetmacro{\centreboardAB}{97.5}
-\pgfmathsetmacro{\centreboardBO}{5}
-\pgfmathsetmacro{\centreboardOC}{5}
-\pgfmathsetmacro{\centreboardCD}{14.5}
-\pgfmathsetmacro{\centreboardDE}{10}
-\pgfmathsetmacro{\centreboardEF}{10}
-\pgfmathsetmacro{\centreboardGy}{46}
+\pgfmathsetmacro{\centreboardAB}{97.5*\globalscale}
+\pgfmathsetmacro{\centreboardBO}{5*\globalscale}
+\pgfmathsetmacro{\centreboardOC}{5*\globalscale}
+\pgfmathsetmacro{\centreboardCD}{14.5*\globalscale}
+\pgfmathsetmacro{\centreboardDE}{10*\globalscale}
+\pgfmathsetmacro{\centreboardFx}{10*\globalscale}
+\pgfmathsetmacro{\centreboardGx}{90.5*\globalscale}
+\pgfmathsetmacro{\centreboardGy}{46*\globalscale}
+\pgfmathsetmacro{\centreboardPivotHoleX}{102.5*\globalscale}
+\pgfmathsetmacro{\centreboardPivotHoleY}{9*\globalscale}
+% Centreboard position in the hull
+\pgfmathsetmacro{\centreboardPivotHoleToHDP}{265*\globalscale}
+\pgfmathsetmacro{\centreboardPivotHoleToBottom}{10.2*\globalscale}
+% Centreboard arbitrary points
+\pgfmathsetmacro{\centreboardAuxAx}{(97.5+25)*\globalscale}
+\pgfmathsetmacro{\centreboardAuxAy}{36*\globalscale}
+\pgfmathsetmacro{\centreboardAuxBx}{(97.5+24)*\globalscale}
+\pgfmathsetmacro{\centreboardAuxBy}{33*\globalscale}
+\pgfmathsetmacro{\centreboardAuxCx}{(97.5+19)*\globalscale}
+\pgfmathsetmacro{\centreboardAuxCy}{32*\globalscale}
+\pgfmathsetmacro{\centreboardAuxDx}{106.5*\globalscale}
+\pgfmathsetmacro{\centreboardAuxDy}{4*\globalscale}
 
+% Rudder dimensions
+\pgfmathsetmacro{\rudderAx}{64.3*\globalscale}
+\pgfmathsetmacro{\rudderAy}{0}
+\pgfmathsetmacro{\rudderBx}{5*\globalscale}
+\pgfmathsetmacro{\rudderBy}{0}
+\pgfmathsetmacro{\rudderCx}{0}
+\pgfmathsetmacro{\rudderCy}{5*\globalscale}
+\pgfmathsetmacro{\rudderDx}{0}
+\pgfmathsetmacro{\rudderDy}{15*\globalscale}
+\pgfmathsetmacro{\rudderEx}{0}
+\pgfmathsetmacro{\rudderEy}{25*\globalscale}
+\pgfmathsetmacro{\rudderFx}{10*\globalscale}
+\pgfmathsetmacro{\rudderFy}{\rudderEy}
+\pgfmathsetmacro{\rudderGx}{51.6*\globalscale}
+\pgfmathsetmacro{\rudderGy}{\rudderEy}
+\pgfmathsetmacro{\rudderPivotHoleX}{75.3*\globalscale}
+\pgfmathsetmacro{\rudderPivotHoleY}{9.8*\globalscale}
+% Rudder position in the hull
+\pgfmathsetmacro{\rudderPivotHoleToHDP}{-15*\globalscale}
+\pgfmathsetmacro{\rudderPivotHoleToBottom}{12*\globalscale}
+% Rudder arbitrary points
+\pgfmathsetmacro{\rudderAuxAx}{\rudderGx*1.47}
+\pgfmathsetmacro{\rudderAuxAy}{\rudderGy*0.64}
+\pgfmathsetmacro{\rudderAuxBx}{\rudderGx*1.46}
+\pgfmathsetmacro{\rudderAuxBy}{3*\globalscale}
+\pgfmathsetmacro{\rudderAuxCx}{\rudderAx+5*\globalscale}
+\pgfmathsetmacro{\rudderAuxCy}{0}
 
-\NewDocumentCommand{\wwboat}{m m O{1}}{
-    % #1: x-coordinate
-    % #2: y-coordinate
-    % #3: scale (default is 1)
+\NewDocumentCommand{\wwboat}{O{1} m m}{
+    % #2: x-coordinate
+    % #3: y-coordinate
+    % #1: scale (default is 1)
 
-    \def\x{#1}
-    \def\y{#2}
-    \def\scalefactor{#3}
+    \pgfmathsetmacro{\xshift}{#2}
+    \pgfmathsetmacro{\yshift}{#3}
+    \pgfmathsetmacro{\sf}{#1}
 
-    \lhull{\x}{\y}{\scalefactor}
+    \pgfmathsetmacro{\centreboardXPos}{\centreboardPivotHoleToHDP + \centreboardPivotHoleY}
+    \pgfmathsetmacro{\centreboardYPos}{\centreboardPivotHoleToBottom - \centreboardPivotHoleX + 6.1*\globalscale}
+
+    \pgfmathsetmacro{\rudderXPos}{\rudderPivotHoleToHDP + \rudderPivotHoleY}
+    \pgfmathsetmacro{\rudderYPos}{\rudderPivotHoleToBottom - \rudderPivotHoleX + 17.8*\globalscale}
+
+    \pgfmathsetmacro{\mastXPos}{\mastbasepointtohull}
+    \pgfmathsetmacro{\mastYPos}{10*\globalscale}
+
+    \lmast[{\sf}]{\mastXPos}{\mastYPos}
+    \lrudder[{\sf}]{\rudderXPos}{\rudderYPos}
+    \lcentreboard[{\sf}]{\centreboardXPos}{\centreboardYPos}
+    \lhull[{\sf}]{#1}{#2}
+    \lmainsail[{\sf}]{0}{0}
 }
 
-\NewDocumentCommand{\lhull}{m m O{1}}{
+\NewDocumentCommand{\lhull}{O{1} m m}{
     % Draws the hull of a 470 class dinghy at specified coordinates and scale (left-facing)
-    % #1: x-coordinate
-    % #2: y-coordinate
-    % #3: scale (default is 1)
+    % #2: x-coordinate
+    % #3: y-coordinate
+    % #1: scale (default is 1)
 
-    \def\x{#1}
-    \def\y{#2}
-    \def\scalefactor{#3}
+    \def\x{#2}
+    \def\y{#3}
+    \def\scalefactor{#1}
 
-        \begin{scope}[shift={(#1,#2)}, scale=#3*0.1]
+    \begin{scope}[shift={(\x*\scalefactor*0.1,\y*\scalefactor*0.1)}, scale={\scalefactor*0.1}]
         % Hull shape coordinates (Based on class rules)
         \coordinate (FMP) at (\hulllength,\hullheight);
-        \coordinate (AMP) at (0,23);
+        \coordinate (AMP) at (0,23*\globalscale);
         \coordinate (HDP) at (0,0);
-        \coordinate (secA) at (50,17.8);
-        \coordinate (secB) at (150,9.8);
-        \coordinate (secC) at (250,6.1);
-        \coordinate (secD) at (350,7.6);
-        \coordinate (secE) at (400,11.4);
+        \coordinate (secA) at (50*\globalscale,17.8*\globalscale);
+        \coordinate (secB) at (150*\globalscale,9.8*\globalscale);
+        \coordinate (secC) at (250*\globalscale,6.1*\globalscale);
+        \coordinate (secD) at (350*\globalscale,7.6*\globalscale);
+        \coordinate (secE) at (400*\globalscale,11.4*\globalscale);
 
-        \coordinate (mastBasePoint) at (308.5,0);
+        \coordinate (mastBasePoint) at (\mastbasepointtohull*\globalscale,0);
 
         % Hull arbitrary points
         \coordinate (transomMiddleTop) at (0,\hullheight);
 
         % Draw the hull of the boat
         \draw [fill=blue!50] (transomMiddleTop)
-        -- plot [smooth] coordinates{
-                (AMP)
-                (secA)
-                (secB)
-                (secC)
-                (secD)
-            }
-            -- (secE) .. controls +(70,7) and +(-9, -20) .. (FMP)
+            -- plot [smooth] coordinates{
+                    (AMP)
+                    (secA)
+                    (secB)
+                    (secC)
+                    (secD)
+                }
+            -- (secE) .. controls +(70*\globalscale,7*\globalscale) and +(-9*\globalscale, -20*\globalscale) .. (FMP)
             -- cycle;
 
         % Foredeck
@@ -95,21 +157,161 @@
     \end{scope}
 }
 
-\NewDocumentCommand{\centreboard}{m m O{1}}{
-    % #1: x-coordinate
-    % #2: y-coordinate
-    % #3: scale (default is 1)
+\NewDocumentCommand{\lcentreboard}{O{1} m m}{
+    % #1: scale (default is 1)
+    % #2: x-coordinate
+    % #3: y-coordinate
 
-    \def\x{#1}
-    \def\y{#2}
-    \def\scalefactor{#3}
-
-    \begin{scope}[shift={(#1,#2)}, scale=#3*0.1]
+    \begin{scope}[shift={(#2*#1*0.1,#3*#1*0.1)}, scale={#1*0.1}, rotate=90]
         \coordinate (O) at (0,0);
-        \coordinate (A) at (0,{\centreboardAB + \centreboardBO});
-        \coordinate (B) at (0,\centreboardBO);
+        \coordinate (A) at ({\centreboardAB + \centreboardBO}, 0);
+        \coordinate (B) at (\centreboardBO, 0);
         \coordinate (C) at (0,\centreboardOC);
         \coordinate (D) at (0,{\centreboardOC + \centreboardCD});
-        \coordinate (E) at (0,{\centreboardOC + \centreboardCD + \centreboardDE});
+        \coordinate (E) at (0,{\centreboardOC + \centreboardCD +
+        \centreboardDE});
+        \coordinate (G) at (\centreboardGx,\centreboardGy);
+
+        \path[name path=EG] (E) -- (G);
+        \path[name path=Vx] (\centreboardFx,0) -- (\centreboardFx,100*\globalscale);
+        \path[name intersections={of=EG and Vx, by=F}];
+
+
+        \coordinate (pivotHoleCenter) at (\centreboardPivotHoleX,\centreboardPivotHoleY);
+        \def\pivotHoleRadius{0.5*\globalscale}
+
+        \coordinate (auxA) at (\centreboardAuxAx,\centreboardAuxAy);
+        \coordinate (auxB) at (\centreboardAuxBx,\centreboardAuxBy);
+        \coordinate (auxC) at (\centreboardAuxCx,\centreboardAuxCy);
+        \coordinate (auxD) at (\centreboardAuxDx,\centreboardAuxDy);
+
+        \def\centerboardPath{ (A) -- (B) 
+        .. controls +(left:2.2*\globalscale) and +(down:2.2*\globalscale) .. (C) 
+        -- (D) 
+        .. controls +(up:4*\globalscale) and +(-7*\globalscale,-1.5*\globalscale) .. (F) 
+        -- (G) 
+        -- (auxA) 
+        .. controls +(1.3*\globalscale,-1*\globalscale) and +(1.2*\globalscale,+0.2*\globalscale) .. (auxB)
+        .. controls +(-0.8*\globalscale,0-.2*\globalscale) and +(0.4*\globalscale,+1.5*\globalscale) .. (auxC)
+        -- (auxD)
+        .. controls +(-0.5*\globalscale,-1.5*\globalscale) and +(+2.5*\globalscale,0) .. cycle
+        }
+
+        \draw [fill=blue!20, even odd rule] 
+        \centerboardPath
+        (pivotHoleCenter) circle (\pivotHoleRadius);
     \end{scope}
 }
+
+\NewDocumentCommand{\lrudder}{O{1} m m}{
+    % #1: scale (default is 1)
+    % #2: x-coordinate
+    % #3: y-coordinate
+
+    \begin{scope}[shift={(#2*#1*0.1,#3*#1*0.1)}, scale={#1*0.1}, rotate=90]
+        \coordinate (O) at (0,0);
+        \coordinate (A) at (\rudderAx,\rudderAy);
+        \coordinate (B) at (\rudderBx,\rudderBy);
+        \coordinate (C) at (\rudderCx,\rudderCy);
+        \coordinate (D) at (\rudderDx,\rudderDy);
+        \coordinate (E) at (\rudderEx,\rudderEy);
+        \coordinate (F) at (\rudderFx,\rudderFy);
+        \coordinate (G) at (\rudderGx,\rudderGy);
+
+        \coordinate (pivotHoleCenter) at (\rudderPivotHoleX,\rudderPivotHoleY);
+        \def\pivotHoleRadius{1*\globalscale}
+
+        \coordinate (auxA) at (\rudderAuxAx,\rudderAuxAy);
+        \coordinate (auxB) at (\rudderAuxBx,\rudderAuxBy);
+        \coordinate (auxC) at (\rudderAuxCx,\rudderAuxCy);
+
+        \def\centerboardPath{ (A) -- (B)
+        .. controls +(left:2.2*\globalscale) and +(down:2.2*\globalscale) .. (C)
+        -- (D)
+        .. controls +(up:4*\globalscale) and +(left:7*\globalscale) .. (F)
+        -- (G)
+        -- (auxA)
+        .. controls +(7*\globalscale,-1.8*\globalscale) and +(8*\globalscale,3.1*\globalscale) .. (auxB)
+        -- (auxC)
+        -- cycle
+        }
+
+        \draw [fill=blue!20, even odd rule] 
+        \centerboardPath
+        (pivotHoleCenter) circle (\pivotHoleRadius);
+
+        % Rudder stock and tiller
+        \draw [fill=black!20, rounded corners=2pt*\globalscale]
+            ([shift={(-10*\globalscale,-11*\globalscale)}]pivotHoleCenter)
+            -- ([shift={(-10*\globalscale,11*\globalscale)}]pivotHoleCenter)
+            -- ([shift={(15*\globalscale, 5*\globalscale)}]pivotHoleCenter)
+            -- ([shift={(15*\globalscale, -11*\globalscale)}]pivotHoleCenter)
+            -- cycle;
+
+        \draw [fill=black!20, rounded corners=1pt*\globalscale]
+            ([shift={(2*\globalscale,3.5*\globalscale)}]pivotHoleCenter)
+            -- ([shift={(0,3*\globalscale)}]pivotHoleCenter)
+            -- ([shift={(20*\globalscale,-90*\globalscale)}]pivotHoleCenter)
+            -- ++(2*\globalscale,0.5*\globalscale)
+            -- cycle
+            ;
+    \end{scope}
+}
+
+\NewDocumentCommand{\lmast}{O{1} m m}{
+    % Draws the mast of a 470 class dinghy at specified coordinates and scale (left-facing)
+    % #2: x-coordinate
+    % #3: y-coordinate
+    % #1: scale (default is 1)
+
+    \def\x{#2}
+    \def\y{#3}
+    \def\scalefactor{#1}
+
+    \begin{scope}[shift={(\x*\scalefactor*0.1,\y*\scalefactor*0.1)}, scale={\scalefactor*0.1}]
+        % Mast base point
+        \coordinate (mastBasePoint) at (0,0);
+        \coordinate (mastTopPoint) at (0,\mastheight);
+        \coordinate (mastForePoint) at (\mastforeaft*0.2,\mastheight);
+        \coordinate (mastAftPoint) at (\mastforeaft,0);
+
+
+        % Draw the mast of the boat
+        \draw [fill=gray!50] 
+            (mastBasePoint) -- (mastTopPoint) 
+            -- (mastForePoint) 
+            .. controls +(right:2*\globalscale) and +(right:2*\globalscale) .. (mastAftPoint) -- cycle;
+
+        % Boom
+        \coordinate (boomStartBottom) at (mastBasePoint)++(0,\boomstartheight-\boomheight/2);
+        \coordinate (boomEndBottom) at (boomStartBottom)++(-\boomlength,0);
+        \coordinate (boomStartTop) at (0,\boomstartheight+\boomheight/2);
+        \coordinate (boomEndTop) at (boomStartTop)++(-\boomlength,0);
+        
+        \draw [fill=gray!30, rounded corners=2pt*\globalscale] 
+            (mastBasePoint)++(0,\boomstartheight-\boomheight/2) 
+            -- ++(-\boomlength,0)
+            -- ++(0,\boomheight)
+            -- ++(\boomlength,0)
+            -- cycle;
+    \end{scope}
+}
+
+\NewDocumentCommand{\lmainsail}{O{1} m m}{
+    % Draws the mainsail of a 470 class dinghy at specified coordinates and scale (left-facing)
+    % #2: x-coordinate
+    % #3: y-coordinate
+    % #1: scale (default is 1)
+
+    \begin{scope}[shift={(#2*#1*0.1,#3*#1*0.1)}, scale={#1*0.1}]
+        \coordinate (tackPoint) at (\mastbasepointtohull, {\boomstartheight +\boomheight*2});
+        \coordinate (headPoint) at (\mastbasepointtohull, \mastheight+5*\globalscale);
+        \coordinate (clewPoint) at (\mastbasepointtohull - \boomlength, \boomstartheight +
+        \boomheight*2);
+
+        \draw [fill=white, opacity=0.8] 
+            (headPoint) .. controls +(-20*\globalscale,-5*\globalscale) and +(10*\globalscale,50*\globalscale) .. (clewPoint) 
+            -- (tackPoint)
+            -- cycle;
+    \end{scope}
+ }
